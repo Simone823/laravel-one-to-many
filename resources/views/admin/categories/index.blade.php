@@ -18,6 +18,7 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Slug</th>
+                <th></th>
             </tr>
 
             {{-- Foreach categories --}}
@@ -26,6 +27,20 @@
                     <td>{{$element->id}}</td>
                     <td>{{$element->name}}</td>
                     <td>{{$element->slug}}</td>
+                    <td>
+                        <form action="{{route('admin.categories.destroy', $element)}}" method="POST">
+
+                            {{-- Key --}}
+                            @csrf
+
+                            {{-- Method delete --}}
+                            @method('DELETE')
+
+                            {{-- Button delete --}}
+                            <button class="btn btn-danger" type="submit">Elimina</button>
+
+                        </form>
+                    </td>
                 </tr>
             @endforeach
 
