@@ -18,6 +18,7 @@
                 <th>Title</th>
                 <th>Slug</th>
                 <th>Description</th>
+                <th>Category_id</th>
                 <th>Image</th>
                 <th>Publication_date</th>
                 <th></th>
@@ -31,6 +32,7 @@
                     <td>{{$element->title}}</td>
                     <td>{{$element->slug}}</td>
                     <td>{{$element->description}}</td>
+                    <td>{{$element->category ? $element->category->name : 'null'}}</td>
                     <td>
                         <figure class="img_wrapper">
                             <img src="{{$element->image}}" alt="">
