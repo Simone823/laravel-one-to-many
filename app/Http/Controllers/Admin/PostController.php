@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Facade\FlareClient\View;
@@ -31,8 +32,11 @@ class PostController extends Controller
      */
     public function create()
     {
+        // Recupero l'elenco di categorie dal database 
+        $categories = Category::all();
+
         // Return view admin.posts.create
-        return view('admin.posts.create');
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -50,6 +54,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:5|max:200',
             'description' => 'nullable',
+            'category_id' => 'nullable|exists:categories,id',
             'image' => 'required|url',
             'publication_date' => 'nullable|date|before_or_equal:today'
         ]);
@@ -108,8 +113,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        // Recupero l'elenco di categorie
+        $categories = Category::all();
+
         // Return view admin.posts.edit
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -128,6 +136,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|min:5|max:200',
             'description' => 'nullable',
+            'category_id' => 'nullable|exists:categories,id',
             'image' => 'required|url',
             'publication_date' => 'nullable|date|before_or_equal:today'
         ]);
