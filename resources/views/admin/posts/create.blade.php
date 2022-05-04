@@ -45,7 +45,7 @@
                 <label for="category_id">Categoria</label>
                 <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
 
-                    <option value="" hidden>Seleziona una categoria</option>
+                    <option value="">Seleziona una categoria</option>
 
                     {{-- Foreach variabile categories --}}
                     @foreach ($categories as $element)
