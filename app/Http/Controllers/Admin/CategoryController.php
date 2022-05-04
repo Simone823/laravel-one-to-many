@@ -15,7 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        // Recupero le categorie dal db
+        $categories = Category::all();
+
+        // Ritorno la view admin categories index
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
