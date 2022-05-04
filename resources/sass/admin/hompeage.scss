@@ -1,4 +1,5 @@
-#section_table_categories {
+#section_table_categories,
+#section_table_users {
     padding: 10px 20px;
 
     h3 {
@@ -6,7 +7,8 @@
         margin-bottom: 30px;
     }
 
-    .table_categories {
+    .table_categories,
+    .table_users {
         margin: 0 auto;
 
         tr {
