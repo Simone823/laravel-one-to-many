@@ -77,7 +77,7 @@
 
                     @else
                         {{-- Link logo database boolpress index --}}
-                        <a class="navbar-brand" href="{{ route('admin.posts.index') }}">
+                        <a class="navbar-brand" href="{{ route('admin.homepage') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="50px" height="50px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 59 59" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
                                 <g><g xmlns="http://www.w3.org/2000/svg" id="Page-1" fill="none" fill-rule="evenodd"><g id="038---Cloud-Data" fill-rule="nonzero">
                                 <path id="Shape" d="m40 4v23.05l-9.23 6.32-20.6 14.11c-6.08-.68-10.17-1.99-10.17-3.48v-40z" fill="#3f5c6c" data-original="#3f5c6c"></path>
