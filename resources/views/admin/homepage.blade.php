@@ -3,6 +3,42 @@
 @section('metaTitle', 'DB BOOLPRESS | HOMEPAGE')
 
 @section('content')
+
+    {{-- Sezione tabella users --}}
+    <section id="section_table_users" class="mb-5">
+
+        {{-- Title --}}
+        <h3 class="text-white">Users</h3>
+
+        {{-- Table users --}}
+        <table class="table_users">
+
+            {{-- Table header --}}
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Email_verified_at</th>
+                <th>Passowrd</th>
+                <th>Remember_token</th>
+            </tr>
+
+            {{-- Foreach users --}}
+            @foreach ($users as $element)
+            <tr>
+                <td>{{$element->id}}</td>
+                <td>{{$element->name}}</td>
+                <td>{{$element->email}}</td>
+                <td>{{$element->email_verified_at == null ? 'null' : $element->email_verified_at}}</td>
+                <td>{{$element->password}}</td>
+                <td>{{$element->remember_token == null ? 'null' : $element->remember_token}}</td>
+
+            </tr>
+            @endforeach
+
+        </table>
+
+    </section>
     
     {{-- Sezione tabella posts --}}
     <section id="section_table_posts" class="mb-5">
@@ -51,7 +87,7 @@
         {{-- Title --}}
         <h3 class="text-white">Categories</h3>
 
-        {{-- Table posts --}}
+        {{-- Table categories --}}
         <table class="table_categories">
 
             {{-- Table header --}}
@@ -73,6 +109,5 @@
         </table>
 
     </section>
-
 
 @endsection
