@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('metaTitle', 'DB BOOLPRESS | HOMEPAGE')
+@section('metaTitle', 'DB BOOLPRESS | POSTS')
 
 @section('content')
 
