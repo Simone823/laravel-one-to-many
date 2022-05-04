@@ -40,6 +40,26 @@
                 @enderror
             </div>
 
+            {{-- Categories --}}
+            <div class="form-group">
+                <label for="category_id">Categoria</label>
+                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+
+                    <option value="" hidden>Seleziona una categoria</option>
+
+                    {{-- Foreach variabile categories --}}
+                    @foreach ($categories as $element)
+                        <option value="{{$element->id}}" {{old('category_id') && old('category_id') == $element->id ? 'selected' : ''}}>{{$element->name}}</option>
+                    @endforeach
+                </select>
+
+                {{-- Error validation --}}
+                @error('category_id')
+                    <div class="alert alert-danger">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
 
             {{-- Image --}}
             <div class="form-group">
