@@ -33,7 +33,7 @@ class PostController extends Controller
     public function create()
     {
         // Recupero l'elenco di categorie dal database 
-        $categories = Category::all();
+        $categories = Category::orderBy('name', 'ASC')->get();
 
         // Return view admin.posts.create
         return view('admin.posts.create', compact('categories'));
@@ -114,7 +114,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         // Recupero l'elenco di categorie
-        $categories = Category::all();
+        $categories = Category::orderBy('name', 'ASC')->get();
 
         // Return view admin.posts.edit
         return view('admin.posts.edit', compact('post', 'categories'));
