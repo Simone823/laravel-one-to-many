@@ -107,6 +107,7 @@
                                 <li class="nav-item text-uppercase font-weight-bold">
                                     <a class="@if (Route::is('admin.posts.index')) text-warning @endif" href="{{route('admin.posts.index')}}">Posts</a>
                                 </li>
+
                                 <li class="nav-item text-uppercase font-weight-bold">
                                     <a class="@if (Route::is('admin.categories.index')) text-warning @endif" href="{{route('admin.categories.index')}}">Categories</a>
                                 </li>
@@ -114,6 +115,11 @@
                                 <li class="nav-item text-uppercase font-weight-bold">
                                     <a class="@if (Route::is('admin.posts.create')) text-warning @endif" href="{{route('admin.posts.create')}}">Aggiungi post</a>
                                 </li>
+
+                                <li class="nav-item text-uppercase font-weight-bold">
+                                    <a class="@if (Route::is('admin.categories.create')) text-warning @endif" href="{{route('admin.categories.create')}}">Aggiungi categoria</a>
+                                </li>
+
                         @endguest
                     </ul>
 
