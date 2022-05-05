@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -29,7 +30,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        // Recupero l'elenco di categorie dal db
+        $categories = Category::all();
+        
+        // Ritnorno la view admin categories create passando la variabile categories
+        return view('admin.categories.create', compact('categories'));
     }
 
     /**
@@ -40,7 +45,31 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // recupero la richiesta
+        $data = $request->all();
+
+        // Validazione 
+        $request->validate([
+            'name' => 'required|max:150|unique:categories,name,except,id',
+        ]);
+
+        // Slug
+        $slug = Str::slug($data['name']);
+
+        // Creo una nuova categoria
+        $category = new Category();
+
+        // Recupero i dati con fill
+        $category->fill($data);
+
+        // Assegno lo slug alla nuova categoria
+        $category->slug = $slug;
+
+        // Salvo i dati
+        $category->save();
+
+        // Redirect route admin categories index
+        return redirect()->route('admin.categories.index');
     }
 
     /**
