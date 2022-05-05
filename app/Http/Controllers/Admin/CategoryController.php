@@ -50,7 +50,7 @@ class CategoryController extends Controller
 
         // Validazione 
         $request->validate([
-            'name' => 'required|max:150|unique:categories,name,except,id',
+            'name' => 'required|max:150|unique:categories,name',
         ]);
 
         // Slug
